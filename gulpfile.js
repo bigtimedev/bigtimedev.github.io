@@ -1,12 +1,23 @@
-var gulp = require('gulp');
-var pug = require('gulp-pug');
-var rename = require('gulp-rename');
+const fs = require('fs');
+const gulp = require('gulp');
+const pug = require('gulp-pug');
+const concatCss = require('gulp-concat-css');
+const cleanCss = require('gulp-clean-css');
 
-gulp.task('default', function() {
-	return gulp.src('./pugs/*.pug')
-		.pipe(pug())
+gulp.task('styles', () => {
+	return gulp.src('./styles/**/*.css')
+		.pipe(concatCss('bundle.css'))
+		.pipe(cleanCss())
+		.pipe(gulp.dest('.'));
+});
+
+gulp.task('default', ['styles'], () => {
+	const styles = fs.readFileSync('./bundle.css').toString();
+	return gulp.src('./pugs/index.pug')
+		.pipe(pug({
+			locals: {
+				styles,
+			},
+		}))
 		.pipe(gulp.dest(__dirname));
-	//.pipe(rename(function(path) {
-	//	path.extname=".html"
-	//}))
 });
