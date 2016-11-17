@@ -1,5 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Luckiest+Guy);
+@import url(https://fonts.googleapis.com/css?family=Rammetto+One|Roboto);
 
 .blocky {
-  font-family: 'Luckiest Guy', serif;
+  font-family: 'Rammetto One', cursive;
+}
+.texty {
+	font-family: 'Roboto', sans-serif;
 }
