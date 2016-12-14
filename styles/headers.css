@@ -1,8 +1,13 @@
 h1 {
   font-size: 6rem;
-  color: #FF9F3F;
+  color: #1DD3B0;
 }
 h2 {
 	font-size: 1.2rem;
-  color:#E0E0E2;
+  color:#ffffff;
+
+}
+a {
+	color:#086375;
+	text-decoration:none;
 }
